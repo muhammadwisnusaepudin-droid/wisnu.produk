@@ -1,68 +1,148 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Toko</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>e-com</title>
+
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; background: #f5f5f5; }
-    header { background: #333; color: white; padding: 15px; text-align: center; }
-    .container { display: flex; flex-wrap: wrap; justify-content: center; padding: 20px; }
-    .product {
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      margin: 10px;
-      padding: 15px;
-      width: 200px;
-      text-align: center;
+    :root{
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --accent: #f500e4;
+      --accent-2: #06b6d4;
+      --text: #0f172a;
+      --muted: #6b7280;
+      --radius: 12px;
+      --max-width: 1100px;
     }
-    .product img { width: 100%; border-radius: 10px; }
-    .product h3 { margin: 10px 0; }
-    .product p { color: green; font-weight: bold; }
-    button {
-      background: #28a745;
-      color: white;
-      border: none;
-      padding: 10px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    button:hover { background: #218838; }
+
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Arial;background:var(--bg);color:var(--text)}
+
+    .wrap{max-width:var(--max-width);margin:auto;padding:20px}
+
+    header{display:flex;justify-content:space-between;align-items:center}
+    nav a{margin:5px;padding:8px 12px;background:#eee;border-radius:8px;cursor:pointer}
+    nav a.active{background:var(--accent);color:white}
+
+    .page{display:none}
+    .activePage{display:block}
+
+    .card{background:white;padding:20px;border-radius:12px;margin-top:20px}
+
+    .products{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+    .product{background:white;padding:10px;border-radius:10px;text-align:center}
+    .product img{width:100%;height:150px;object-fit:cover;border-radius:8px}
+
+    button{padding:8px 12px;border:none;border-radius:8px;background:var(--accent);color:white;margin-top:10px;cursor:pointer}
   </style>
 </head>
 <body>
 
-<header>
-  <h1>djon dimari ada djon kita party</h1>
-</header>
+<div class="wrap">
+  <header>
+    <h2>Toko Bunga</h2>
+    <nav>
+      <a onclick="showPage('p1')" class="active">Halaman 1</a>
+      <a onclick="showPage('p2')">Halaman 2</a>
+      <a onclick="showPage('p3')">Halaman 3</a>
+    </nav>
+  </header>
 
-<div class="container">
-  <div class="product">
-    <img src="https://via.placeholder.com/200" alt="Produk 1">
-    <h3>Produk 1</h3>
-    <p>Rp 50.000</p>
-    <button onclick="beli('Produk 1')">Beli</button>
+  <!-- HALAMAN 1 -->
+  <div id="p1" class="page activePage">
+    <div class="card">
+      <h2>Halaman 1 - Produk</h2>
+      <div class="products">
+        <div class="product">
+          <img src="c:\Users\Hype AMD\AppData\Local\Packages\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\LocalState\sessions\B566B2202C5D35EC84157BC3D274D830F779F924\transfers\2026-16\WhatsApp Image 2026-04-15 at 17.12.18.jpeg">
+          <h3>Produk A</h3>
+          <p>Rp 200.000</p>
+          <button onclick="addCart('Produk A')">Beli</button>
+        </div>
+
+        <div class="product">
+          <img src="c:\Users\Hype AMD\AppData\Local\Packages\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\LocalState\sessions\B566B2202C5D35EC84157BC3D274D830F779F924\transfers\2026-16\WhatsApp Image 2026-04-15 at 17.11.51.jpeg">
+          <h3>Produk B</h3>
+          <p>Rp 200.000</p>
+          <button onclick="addCart('Produk B')">Beli</button>
+        </div>
+
+        <div class="product">
+          <img src="c:\Users\Hype AMD\AppData\Local\Packages\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\LocalState\sessions\B566B2202C5D35EC84157BC3D274D830F779F924\transfers\2026-16\WhatsApp Image 2026-04-15 at 17.11.17.jpeg">
+          <h3>Produk C</h3>
+          <p>Rp 200.000</p>
+          <button onclick="addCart('Produk C')">Beli</button>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="product">
-    <img src="https://via.placeholder.com/200" alt="Produk 2">
-    <h3>Produk 2</h3>
-    <p>Rp 75.000</p>
-    <button onclick="beli('Produk 2')">Beli</button>
+  <!-- HALAMAN 2 -->
+  <div id="p2" class="page">
+    <div class="card">
+      <h2>Halaman 2 - Produk</h2>
+      <div class="products">
+        <div class="product">
+          <img src="c:\Users\Hype AMD\AppData\Local\Packages\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\LocalState\sessions\B566B2202C5D35EC84157BC3D274D830F779F924\transfers\2026-16\WhatsApp Image 2026-04-15 at 17.10.32.jpeg">
+          <h3>Produk D</h3>
+          <p>Rp 200.000</p>
+          <button onclick="addCart('Produk D')">Beli</button>
+        </div>
+
+        <div class="product">
+          <img src="c:\Users\Hype AMD\AppData\Local\Packages\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\LocalState\sessions\B566B2202C5D35EC84157BC3D274D830F779F924\transfers\2026-16\WhatsApp Image 2026-04-15 at 17.10.16.jpeg">
+          <h3>Produk E</h3>
+          <p>Rp 200.000</p>
+          <button onclick="addCart('Produk E')">Beli</button>
+        </div>
+
+        <div class="product">
+          <img src="c:\Users\Hype AMD\AppData\Local\Packages\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\LocalState\sessions\B566B2202C5D35EC84157BC3D274D830F779F924\transfers\2026-16\WhatsApp Image 2026-04-15 at 17.08.21.jpeg">
+          <h3>Produk F</h3>
+          <p>Rp 200.000</p>
+          <button onclick="addCart('Produk F')">Beli</button>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="product">
-    <img src="https://via.placeholder.com/200" alt="Produk 3">
-    <h3>Produk 3</h3>
-    <p>Rp 100.000</p>
-    <button onclick="beli('Produk 3')">Beli</button>
+  <!-- HALAMAN 3 -->
+  <div id="p3" class="page">
+    <div class="card">
+      <h2>Halaman 3 - Keranjang</h2>
+      <ul id="cartList"></ul>
+    </div>
   </div>
+
 </div>
 
 <script>
-  function beli(namaProduk) {
-    alert(namaProduk + " ditambahkan ke keranjang!");
+  function showPage(id){
+    document.querySelectorAll('.page').forEach(p=>p.classList.remove('activePage'));
+    document.getElementById(id).classList.add('activePage');
+
+    document.querySelectorAll('nav a').forEach(a=>a.classList.remove('active'));
+    event.target.classList.add('active');
+  }
+
+  let cart = [];
+
+  function addCart(nama){
+    cart.push(nama);
+    renderCart();
+    alert(nama + ' ditambahkan ke keranjang terima kasih sudah berbelanja!');
+  }
+
+  function renderCart(){
+    let list = document.getElementById('cartList');
+    list.innerHTML = '';
+    cart.forEach(item=>{
+      let li = document.createElement('li');
+      li.textContent = item;
+      list.appendChild(li);
+    })
   }
 </script>
 
